@@ -31,3 +31,68 @@ body {
     text-wrap: balance;
   }
 }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+.bg-wave-pattern {
+  background-image: url('/images/wave-pattern.png');
+}
+
+.bg-secondary {
+  background-color: #00C1D4;
+}
+
+.text-primary {
+  color: #4B0082;
+}
+
+.hover\:text-primary:hover {
+  color: #4B0082;
+}
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-fade-in {
+  animation: fade-in 2s ease-in-out;
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+.bg-wave-pattern {
+  background-image: url('/path/to/your/wave-pattern.png');
+}
