@@ -61,8 +61,9 @@ body {
 }
 
 .bg-wave-pattern {
-  background-image: url('/images/wave-pattern.png');
+  background-image: url('/path/to/your/image.jpg');
 }
+
 
 .bg-secondary {
   background-color: #00C1D4;

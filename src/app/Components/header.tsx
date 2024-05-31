@@ -17,8 +17,16 @@ const Header = () => {
     };
   }, []);
 
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <header className={`py-6 fixed w-full z-50 transition-colors duration-300 ${isScrolled ? 'bg-primary/75 backdrop-blur-sm' : 'bg-primary text-white'}`}>
+    <header className={`py-4 fixed w-full h-20 z-50 transition-colors duration-300 ${isScrolled ? 'bg-primary/75 backdrop-blur-sm' : 'bg-primary text-white'}`}>
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center cursor-pointer">
         <div className="flex items-center space-x-4 mb-4 md:mb-0">
           <Image
@@ -31,19 +39,19 @@ const Header = () => {
         <nav>
           <ul className="flex space-x-8 text-lg">
             <li className="relative group">
-              <a href="#how-it-works" className="hover:text-secondary">Como funciona</a>
+              <a href="#how-it-works" onClick={(e) => handleSmoothScroll(e, '#how-it-works')} className="hover:text-secondary">Como funciona</a>
               <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
             </li>
             <li className="relative group">
-              <a href="#benefits" className="hover:text-secondary">Benefícios</a>
+              <a href="#benefits" onClick={(e) => handleSmoothScroll(e, '#benefits')} className="hover:text-secondary">Benefícios</a>
               <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
             </li>
             <li className="relative group">
-              <a href="#locations" className="hover:text-secondary">Onde estamos</a>
+              <a href="#locations" onClick={(e) => handleSmoothScroll(e, '#locations')} className="hover:text-secondary">Onde estamos</a>
               <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
             </li>
             <li className="relative group">
-              <a href="#clients" className="hover:text-secondary">Nossos clientes</a>
+              <a href="#clients" onClick={(e) => handleSmoothScroll(e, '#clients')} className="hover:text-secondary">Nossos clientes</a>
               <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
             </li>
           </ul>
