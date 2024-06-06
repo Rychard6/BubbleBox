@@ -1,7 +1,10 @@
+// file path: /components/Header.js
+
 "use client";
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { FaWhatsapp, FaBars, FaTimes } from 'react-icons/fa';
+import { MouseEvent } from 'react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,7 +23,7 @@ const Header = () => {
     }
   }, []);
 
-  const handleSmoothScroll = (e, targetId) => {
+  const handleSmoothScroll = (e: MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     if (typeof window !== 'undefined') {
       const targetElement = document.querySelector(targetId);
