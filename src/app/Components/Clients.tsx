@@ -4,6 +4,8 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import Image from 'next/image';
+
 
 export default function Clients() {
   const [clients, setClients] = useState([]);
@@ -62,7 +64,7 @@ export default function Clients() {
           {clients.map((client, index) => (
             <div key={index} className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
               <div className='mb-4'>
-                <img src={client.picture.large} alt={client.name.first} className="w-24 h-24 rounded-full shadow-md" />
+                <Image src={client.picture.large} alt={client.name.first} className="w-24 h-24 rounded-full shadow-md" />
               </div>
               <h3 className="text-xl font-semibold text-primary mb-2">{client.name.first} {client.name.last}</h3>
               <p className="text-gray-700 italic text-center">"Excelente serviço, minhas roupas ficaram impecáveis!"</p>
