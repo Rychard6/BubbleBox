@@ -1,10 +1,11 @@
+"use client";
 import { FaTiktok, FaInstagram, FaFacebookF } from 'react-icons/fa';
 
 export default function Footer() {
   return (
     <footer className="bg-primary text-white py-10">
       <div className="container mx-auto px-4 text-center">
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-6 space-x-4">
           <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="mx-2">
             <FaFacebookF className="text-3xl hover:text-gray-400" />
           </a>

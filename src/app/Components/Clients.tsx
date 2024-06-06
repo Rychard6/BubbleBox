@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useEffect, useState } from 'react';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 export default function Clients() {
   const [clients, setClients] = useState([]);
@@ -24,13 +25,38 @@ export default function Clients() {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-4xl font-bold text-center mb-12">Nossos Clientes</h2>
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-primary">Nossos Clientes</h2>
+          <div className="w-36 h-1 bg-secondary mx-auto mb-4"></div>
+        </div>
         <Carousel
           showThumbs={false}
           showStatus={false}
           infiniteLoop
           autoPlay
           interval={3000}
+          renderArrowPrev={(clickHandler, hasPrev, labelPrev) =>
+            hasPrev && (
+              <button
+                type="button"
+                onClick={clickHandler}
+                className="absolute top-1/2 transform -translate-y-1/2 left-4 text-3xl text-primary hover:text-secondary z-10"
+              >
+                <FaArrowLeft />
+              </button>
+            )
+          }
+          renderArrowNext={(clickHandler, hasNext, labelNext) =>
+            hasNext && (
+              <button
+                type="button"
+                onClick={clickHandler}
+                className="absolute top-1/2 transform -translate-y-1/2 right-4 text-3xl text-primary hover:text-secondary z-10"
+              >
+                <FaArrowRight />
+              </button>
+            )
+          }
           className="w-full max-w-4xl mx-auto"
         >
           {clients.map((client, index) => (
@@ -38,7 +64,7 @@ export default function Clients() {
               <div className='mb-4'>
                 <img src={client.picture.large} alt={client.name.first} className="w-24 h-24 rounded-full shadow-md" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{client.name.first} {client.name.last}</h3>
+              <h3 className="text-xl font-semibold text-primary mb-2">{client.name.first} {client.name.last}</h3>
               <p className="text-gray-700 italic text-center">"Excelente serviço, minhas roupas ficaram impecáveis!"</p>
             </div>
           ))}
