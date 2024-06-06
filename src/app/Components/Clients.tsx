@@ -6,9 +6,18 @@ import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import Image from 'next/image';
 
+type Client = {
+  name: {
+    first: string;
+    last: string;
+  };
+  picture: {
+    large: string;
+  };
+};
 
 export default function Clients() {
-  const [clients, setClients] = useState([]);
+  const [clients, setClients] = useState<Client[]>([]);
 
   useEffect(() => {
     async function fetchClients() {
@@ -64,7 +73,7 @@ export default function Clients() {
           {clients.map((client, index) => (
             <div key={index} className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
               <div className='mb-4'>
-                <Image src={client.picture.large} alt={client.name.first} className="w-24 h-24 rounded-full shadow-md" />
+                <Image src={client.picture.large} alt={client.name.first} className="w-24 h-24 rounded-full shadow-md" width={96} height={96} />
               </div>
               <h3 className="text-xl font-semibold text-primary mb-2">{client.name.first} {client.name.last}</h3>
               <p className="text-gray-700 italic text-center">"Excelente serviço, minhas roupas ficaram impecáveis!"</p>
