@@ -4,8 +4,11 @@ import Header from './header';
 import HeroSection from './HeroSection';
 import HowItWorks from './HowItWorks';
 import Benefits from './Benefits';
+import OurServices from './OurServices';
+import PricingPlans from './PricingPlans';
 import Locations from './Locations';
 import Clients from './Clients';
+import FinalCallToAction from './FinalCallToAction';
 import Footer from './Footer';
 
 export default function Home() {
@@ -22,10 +25,13 @@ export default function Home() {
         <HeroSection />
         <HowItWorks />
         <Benefits />
+        <OurServices />
+        <PricingPlans />
         <Locations />
         <Clients />
-        <Footer />
+        <FinalCallToAction />
       </main>
+      <Footer />
     </div>
   );
 }

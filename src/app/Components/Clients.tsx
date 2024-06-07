@@ -7,26 +7,20 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import Image from 'next/image';
 
 type Client = {
-  name: {
-    first: string;
-    last: string;
-  };
-  picture: {
-    large: string;
-  };
+  name: string;
+  comment: string;
+  image: string;
 };
 
-export default function Clients() {
-  const [clients, setClients] = useState<Client[]>([]);
+const clientsData: Client[] = [
+  { name: 'Rychard Ryan', comment: 'Serviço excelente! Minhas roupas ficaram impecáveis.', image: '/imagens/Rychard.jpg' },
+  { name: 'Maria Oliveira', comment: 'Atendimento rápido e eficiente. Recomendo!', image: '/imagens/maria-oliveira.jpg' },
+  { name: 'Carlos Pereira', comment: 'Minha primeira experiência foi muito positiva, muito pratico!', image: '/imagens/carlos-pereira.jpg' },
+  { name: 'Ana Souza', comment: 'Muito prático e fácil de usar. Adorei!', image: '/imagens/ana-souza.jpg' },
+];
 
-  useEffect(() => {
-    async function fetchClients() {
-      const response = await fetch('https://randomuser.me/api/?results=4');
-      const data = await response.json();
-      setClients(data.results);
-    }
-    fetchClients();
-  }, []);
+export default function Clients() {
+  const [clients, setClients] = useState<Client[]>(clientsData);
 
   return (
     <section id="clients" className="py-20 bg-gray-100">
@@ -73,10 +67,10 @@ export default function Clients() {
           {clients.map((client, index) => (
             <div key={index} className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
               <div className='mb-4'>
-                <Image src={client.picture.large} alt={client.name.first} className="w-24 h-24 rounded-full shadow-md" width={96} height={96} />
+                <Image src={client.image} alt={client.name} className="w-24 h-24 rounded-full shadow-md" width={96} height={96} />
               </div>
-              <h3 className="text-xl font-semibold text-primary mb-2">{client.name.first} {client.name.last}</h3>
-              <p className="text-gray-700 italic text-center">"Excelente serviço, minhas roupas ficaram impecáveis!"</p>
+              <h3 className="text-xl font-semibold text-primary mb-2">{client.name}</h3>
+              <p className="text-gray-700 italic text-center">"{client.comment}"</p>
             </div>
           ))}
         </Carousel>
