@@ -1,10 +1,9 @@
 // file path: /components/Header.js
 
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, MouseEvent } from 'react';
 import Image from 'next/image';
 import { FaWhatsapp, FaBars, FaTimes } from 'react-icons/fa';
-import { MouseEvent } from 'react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -70,7 +69,7 @@ const Header = () => {
           </ul>
         </nav>
         <div className="hidden md:flex">
-          <a href="https://wa.me/your-number-here" className="flex items-center border border-white py-2 px-4 rounded-md text-white hover:bg-green-500 hover:border-green-500 hover:text-white transition">
+          <a href="https://wa.me/5561996966769" className="flex items-center border border-white py-2 px-4 rounded-md text-white hover:bg-green-500 hover:border-green-500 hover:text-white transition">
             Fale conosco<FaWhatsapp className="ml-2 w-8 h-8" />
           </a>
         </div>
@@ -96,7 +95,7 @@ const Header = () => {
               <a href="#clients" onClick={(e) => handleSmoothScroll(e, '#clients')} className="hover:text-secondary">Nossos clientes</a>
             </li>
             <li className="relative group mt-4">
-              <a href="https://wa.me/your-number-here" className="flex items-center border border-white py-2 px-4 rounded-md text-white hover:bg-green-500 hover:border-green-500 hover:text-white transition">
+              <a href="https://wa.me/5561996966769" className="flex items-center border border-white py-2 px-4 rounded-md text-white hover:bg-green-500 hover:border-green-500 hover:text-white transition">
                 Fale conosco<FaWhatsapp className="ml-2 w-8 h-8" />
               </a>
             </li>

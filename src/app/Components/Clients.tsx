@@ -1,8 +1,9 @@
+// file path: /components/Clients.js
+
 "use client";
 import { motion } from 'framer-motion';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import Image from 'next/image';
 
@@ -14,14 +15,12 @@ type Client = {
 
 const clientsData: Client[] = [
   { name: 'Rychard Ryan', comment: 'Serviço excelente! Minhas roupas ficaram impecáveis.', image: '/imagens/Rychard.jpg' },
-  { name: 'Maria Oliveira', comment: 'Atendimento rápido e eficiente. Recomendo!', image: '/imagens/maria-oliveira.jpg' },
-  { name: 'Carlos Pereira', comment: 'Minha primeira experiência foi muito positiva, muito pratico!', image: '/imagens/carlos-pereira.jpg' },
-  { name: 'Ana Souza', comment: 'Muito prático e fácil de usar. Adorei!', image: '/imagens/ana-souza.jpg' },
+  { name: 'Raylanne', comment: 'Atendimento rápido e eficiente. Recomendo!', image: '/imagens/Raylanne.jpeg' },
+  { name: 'Victor Hugo', comment: 'Minha primeira experiência foi muito positiva, muito prático!', image: '/imagens/Victor.jpeg' },
+  { name: 'Branda Lacerda', comment: 'Muito prático e fácil de usar. Adorei!', image: '/imagens/Brenda.jpg' },
 ];
 
 export default function Clients() {
-  const [clients, setClients] = useState<Client[]>(clientsData);
-
   return (
     <section id="clients" className="py-20 bg-gray-100">
       <motion.div
@@ -64,10 +63,12 @@ export default function Clients() {
           }
           className="w-full max-w-4xl mx-auto"
         >
-          {clients.map((client, index) => (
+          {clientsData.map((client, index) => (
             <div key={index} className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
               <div className='mb-4'>
-                <Image src={client.image} alt={client.name} className="w-24 h-24 rounded-full shadow-md" width={96} height={96} />
+                <div className="w-24 h-24 overflow-hidden rounded-full shadow-md">
+                  <Image src={client.image} alt={client.name} className="object-cover w-full h-full" width={96} height={96} />
+                </div>
               </div>
               <h3 className="text-xl font-semibold text-primary mb-2">{client.name}</h3>
               <p className="text-gray-700 italic text-center">"{client.comment}"</p>
