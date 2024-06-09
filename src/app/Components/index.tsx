@@ -27,8 +27,8 @@ export default function Home() {
         <Benefits />
         <OurServices />
         <PricingPlans />
-        <Locations />
         <Clients />
+        <Locations />
         <FinalCallToAction />
       </main>
       <Footer />
